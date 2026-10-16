@@ -92,8 +92,8 @@ def login_user(user: LoginRequest):
       found_user.password.encode('utf-8')
     ):
       raise HTTPException(
-        status_code=400, detail='Invalid credentials'
-      )
+        status_code=400, detail='Invalid credentials')
+    
     token= jwt.encode(
       {'user_id': found_user.user_id},
       SECRET_KEY,
